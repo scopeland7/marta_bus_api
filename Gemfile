@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#To hide the API key
+gem 'figaro'
 
 #Need this to determine user's coordinates
 gem 'geocoder'

@@ -16,7 +16,7 @@ class LocationsController < ApplicationController
     @bus_count = 0
     @nearby_buses = []
     @buses.each do |bus|
-      if nearby(@location.longitude, @location.longitude, bus['LONGITUDE'].to_f, bus['LATITUDE'].to_f)
+      if nearby(@location.longitude, @location.latitude, bus['LONGITUDE'].to_f, bus['LATITUDE'].to_f)
         @bus_count += 1
         @nearby_buses.push(bus)
       end
