@@ -1,0 +1,28 @@
+<h2>Your Current Location</h2>
+
+<p>
+	<!-- my_location will be defined in model as combination of address and city -->
+	<%= @location.my_location %>
+</p>
+
+
+<h2>Here Are The Buses Closest To You</h2>
+
+<% if @bus_count == 0 %>
+  <p>
+    I'm afraid there aren't any buses nearby. Look for another method of tranpsortation or try again in a little while.
+  </p>
+<% end %>
+
+<% @nearby_buses.each do |bus| %>
+  <p>
+    <!-- Display route #, vehicle #, and the bus' next stop -->
+    <strong>Route</strong>: <%= bus['ROUTE'] %><br />
+    <strong>Vehicle #</strong>: <%= bus['VEHICLE'] %><br />
+    <strong>Next Stop</strong>: <%= bus['TIMEPOINT'] %><br /> 
+  </p>
+<% end %>
+
+
+<!-- Leaving a link to the edit form in case user needs to update their location -->
+<%= link_to "Actually, I'm at...", edit_location_path(@location) %> 
